@@ -1,13 +1,18 @@
 import json
 import shutil
+import sys
  
-shutil.copy('tests.json', 'report.json')                   #создаем шаблон файла report, в котором будем производить замены
+tests = sys.argv[1]
+report = sys.argv[2]
+values = sys.argv[3]
+
+shutil.copy(tests, report)                   #создаем шаблон файла report, в котором будем производить замены
 
 # Чтение данных из файлов values.json, tests.json
-with open('values.json', 'r') as values_file:
+with open(values, 'r') as values_file:
     values_data = json.load(values_file)
 
-with open('report.json', 'r') as report_file:
+with open(report, 'r') as report_file:
     report_data = json.load(report_file)
 
 def get_index(values_data):                                 #получаем id из файла values
@@ -32,7 +37,7 @@ def get_values(values_data, element):                        #получаем �
 print(get_index(values_data))                    
 print(get_values(values_data, get_index(values_data)[11]))
 
-with open('report.json') as new_report_file:
+with open(report) as new_report_file:
     new_report_data = json.load(new_report_file)
     for report_items in new_report_data.values():
         for i in range(len(report_items)):

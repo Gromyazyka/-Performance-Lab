@@ -1,4 +1,7 @@
-n, m = map(int, input().split())
+#n, m = map(int, input().split())
+import sys
+n = int(sys.argv[1])
+m = int(sys.argv[2])
 
 def next_elem(i):
     elem = 1 + (i + m - 2) % n

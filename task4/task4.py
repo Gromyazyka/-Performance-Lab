@@ -1,3 +1,7 @@
+import sys
+
+num = sys.argv[1]
+
 def get_min_count(filename):
     with open(filename, 'r', encoding='utf-8') as f:
         nums = [int(line.strip()) for line in f]
@@ -16,4 +20,4 @@ def get_min_count(filename):
 
     return count
 
-#print(get_min_count('numbers.txt'))
+print(get_min_count(num))

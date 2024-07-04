@@ -1,3 +1,5 @@
+import sys
+
 def where_dot(file_circle, file_dot):
 
     with open(file_circle, 'r', encoding='utf-8') as f1:
@@ -23,4 +25,5 @@ def where_dot(file_circle, file_dot):
         elif f < 0:
             print(1)
 
-#where_dot('file1.txt', 'file2.txt')
+where_dot(sys.argv[1], sys.argv[2])
+#print('Запись законечена')
